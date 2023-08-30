@@ -7,7 +7,7 @@ This is a language mode for [CodeMirror 6](https://codemirror.net) that provides
 The package exports a single function that'll register the mode with a CodeMirror instance:
 
 ```javascript
-import {srt} from "codemirror-lang-srt"
+import {srt} from "codemirror-lang-srt";
 
 srt() // This will register the mode with CodeMirror
 ```

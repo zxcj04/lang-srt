@@ -13,7 +13,7 @@ export const SrtLanguage = LRLanguage.define({
         TwoDigitTime: t.number,
         ThreeDigitTime: t.number,
         TimeSeparator: t.punctuation,
-        SubtitleText: t.constant(t.string),
+        SubtitleText: t.literal,
       })
     ]
   }),
@@ -22,6 +22,6 @@ export const SrtLanguage = LRLanguage.define({
   }
 })
 
-export function Srt() {
+export function srt() {
   return new LanguageSupport(SrtLanguage)
 }
