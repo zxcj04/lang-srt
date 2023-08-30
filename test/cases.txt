@@ -1,41 +1,63 @@
-# Booleans
+# Subtitle
 
-#t
-#f
-
-==>
-
-Program(Boolean, Boolean)
-
-# Identifiers
-
-one
-Two_Three
+1
+00:00:00,000 --> 00:00:00,000
+test
 
 ==>
 
-Program(Identifier, Identifier)
+SubtitleFile(
+  Subtitle(
+    SubtitleIndex,
+    NewLine,
+    TimeRange(
+      Time(TwoDigitTime, TwoDigitTime, TwoDigitTime, ThreeDigitTime),
+      TimeSeparator,
+      Time(TwoDigitTime, TwoDigitTime, TwoDigitTime, ThreeDigitTime),
+    ),
+    NewLine,
+    SubtitleText
+  )
+)
 
-# Strings
+# Two Subtitle
 
-"hello"
-"one\"\\two"
+1
+00:02:16,612 --> 00:02:19,376
+Senatora asdasd
+asdasd
+asdasdasdas
+asdasdasd
+
+2
+00:02:19,482 --> 00:02:21,609
+Very
 
 ==>
 
-Program(String, String)
-
-# Applications
-
-(begin
-  (when #t
-    (print (concat "hello" " " "world")))
-  (print "DONE"))
-
-==>
-
-Program(Application(
-  Identifier,
-  Application(Identifier, Boolean, Application(
-    Identifier, Application(Identifier, String, String, String)))
-  Application(Identifier, String)))
+SubtitleFile(
+  Subtitle(
+    SubtitleIndex,
+    NewLine,
+    TimeRange(
+      Time(TwoDigitTime, TwoDigitTime, TwoDigitTime, ThreeDigitTime),
+      TimeSeparator,
+      Time(TwoDigitTime, TwoDigitTime, TwoDigitTime, ThreeDigitTime),
+    ),
+    NewLine,
+    SubtitleText
+  ),
+  NewLine,
+  NewLine,
+  Subtitle(
+    SubtitleIndex,
+    NewLine,
+    TimeRange(
+      Time(TwoDigitTime, TwoDigitTime, TwoDigitTime, ThreeDigitTime),
+      TimeSeparator,
+      Time(TwoDigitTime, TwoDigitTime, TwoDigitTime, ThreeDigitTime),
+    ),
+    NewLine,
+    SubtitleText
+  )
+)

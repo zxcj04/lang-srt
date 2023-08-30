@@ -1,26 +1,28 @@
-@top Program { expression* }
+@top SubtitleFile { expression* }
 
-@skip { space | LineComment }
+@skip { space }
+
+Time { TwoDigitTime ":" TwoDigitTime ":" TwoDigitTime "," ThreeDigitTime }
+
+TimeRange {  Time TimeSeparator Time }
+
+Subtitle { SubtitleIndex NewLine TimeRange NewLine SubtitleText }
 
 expression {
-  Identifier |
-  String |
-  Boolean |
-  Application { "(" expression* ")" }
+  Subtitle |
+  NewLine
 }
 
 @tokens {
-  Identifier { $[a-zA-Z_\-0-9]+ }
+  SubtitleIndex { $[0-9]+ }
 
-  String { '"' (!["\\] | "\\" _)* '"' }
+  TwoDigitTime { @digit@digit }
+  ThreeDigitTime { @digit@digit@digit }
+  TimeSeparator { "-->" }
 
-  Boolean { "#t" | "#f" }
+  _SubtitleText { @asciiLetter+ }
+  SubtitleText { _SubtitleText ( (space | NewLine) _SubtitleText )* }
 
-  LineComment { ";" ![\n]* }
-
-  space { $[ \t\n\r]+ }
-
-  "(" ")"
+  space { $[ \t]+ }
+  NewLine { $[\r\n] }
 }
-
-@detectDelim
